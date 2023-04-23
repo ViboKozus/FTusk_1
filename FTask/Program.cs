@@ -8,6 +8,8 @@ int N = Convert.ToInt32(Console.ReadLine());
 string[] Arr = new string[N];
 
 Mas(Arr);
+printArr(newArr(Arr));
+
 
 void Mas(string[] Arr)
 {
@@ -16,5 +18,35 @@ void Mas(string[] Arr)
         Console.WriteLine($"Введите {i + 1} элемент массива");
         Arr[i] = Console.ReadLine()!;
     }
+}
+
+string[] newArr(string[] Arr)
+{
+    int n = 0;
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        if (Arr[i].Length <= 3)
+            n++;
+    }
+    string[] arrayres = new string[n];
+    int j = 0;
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        if (Arr[i].Length <= 3)
+        {
+            arrayres[j] = Arr[i];
+            j++;
+        }
+    }
+    return arrayres;
+}
+void printArr(string[] Arr)
+{
+    Console.WriteLine("Элементы массива удовлетворяющие требование задачи: ");
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        Console.WriteLine(Arr[i] + " ");
+    }
+    Console.WriteLine();
 }
 
